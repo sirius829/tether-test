@@ -1,6 +1,7 @@
 const initialState = {
     orderBook: [],
     isWebSocketConnected: false,
+    precision: 0
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -22,7 +23,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 isWebSocketConnected: false,
             };
-
+        case 'UPDATE_PRECISION':
+            return {
+                ...state,
+                precision: action.payload
+            }
         default:
             return state;
     }
